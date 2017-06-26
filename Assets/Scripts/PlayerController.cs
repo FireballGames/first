@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-	Rigidbody rb;
+	public float speed;
+	private Rigidbody rb;
 
 	// Use this for initialization
 	void Start () {
@@ -16,6 +17,6 @@ public class PlayerController : MonoBehaviour {
 		float moveVertical = Input.GetAxis ("Vertical");
 
 		Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
-		rb.AddForce (movement);
+		rb.AddForce (movement * speed);
 	}
 }
